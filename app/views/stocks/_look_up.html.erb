@@ -1,0 +1,54 @@
+<div class="container" id="lookup-main-block">
+	<div class="row">
+		<div class="col-md-7">
+            <div>
+            	<div class="col-md-12">
+            		<h3 class="animated bounce"><strong>Search stocks</strong></h3>
+            	</div>
+            </div>
+			<%=form_tag search_stock_path, remote: true, method: :get, id: 'look-up-form' do %>
+
+			<div class="form-group col-md-7">
+
+				<%= text_field_tag :stock, params[:stock], placeholder: 'Stock sticker symbol', class: 'form-control input-lg', autofocus: true %>
+			</div>
+			<div class="form-group col-md-5">
+				<%=button_tag(type: :submit, class: 'btn btn-lg btn-success look-sub-btn') do %>
+					<span id="search-stock-cont"><i class="fa fa-search" aria-hidden="true"></i> Look up stock</span>
+					<span id="spin-lookup"><i class="fa fa-cog fa-spin fa-lg" aria-hidden="true"></i> Searching...</span>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+	<% if @stock %>
+		<div class="row" id="stock-lookup-results">
+			<div class="col-md-7">
+				<div class="well">
+
+					<strong>Symbol:</strong> <%=@stock.ticker %>
+					<strong>Name:</strong> <%=@stock.name %>
+					<strong>Price:</strong> <%=@stock.price %>
+					
+					<% if current_user.can_add_stock?(@stock.ticker) %>
+						<%=link_to 'Add to my stocks', user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id : ''), class:'btn btn-xs btn-success', method: :post %>
+					<% else %>
+						<span class="label label-danger">
+						Stock cannot be added because you have already added
+						<% if !current_user.under_stock_limit? && !current_user.stock_already_added?(@stock.ticker) %>
+							10 stocks
+						<% end %>
+							<% if !current_user.under_stock_limit? && current_user.stock_already_added?(@stock.ticker) %>
+								10 stocks and maximum limit is 10 stocks.
+							<% end %>	
+							<% if current_user.stock_already_added?(@stock.ticker) && current_user.under_stock_limit?%>
+								this stock
+							<% end %>
+						</span>
+					<% end %>
+				</div>
+			</div>
+		</div>	
+	<% end %>
+	<div id="lookup-errors"></div>
+</div>

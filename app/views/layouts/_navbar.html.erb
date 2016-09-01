@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <b><%= link_to '<i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i> Stocks'.html_safe, root_path, class: 'navbar-brand' %></b>
+    </div>
+    <% if current_user %>
+    <ul class="nav navbar-nav">
+      
+      
+      <!-- li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>  -->
+    </ul>
+    <% end %>
+    <ul class="nav navbar-nav navbar-right">
+      
+      <% if current_user %>
+        <li><%= link_to 'My Portfolio', my_portfolio_path %></li>
+        <li><%= link_to 'My Friends', my_friends_path %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+
+        <li><%= link_to 'Edit Profile2', edit_user_path(current_user) %></li>
+        
+        <li>
+          <%= link_to current_user.full_name, my_portfolio_path %>
+        </li>
+        <li class="avatar-nav"><%=link_to avatar_for(current_user, size: 25) %></li>
+        <li>
+
+          <%= link_to '<span class="glyphicon glyphicon-off"></span> Log out'.html_safe, destroy_user_session_path, method: :delete, class: "btn btn-xs btn-danger" %>
+        </li>
+      <% else %> 
+        <li>
+          <%= link_to '<span class="glyphicon glyphicon-user"></span> Sign Up'.html_safe, new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to '<span class="glyphicon glyphicon-log-in"></span> Login'.html_safe, new_user_session_path %>
+        </li> 
+      <% end %>  
+    </ul>
+  </div>
+</nav>

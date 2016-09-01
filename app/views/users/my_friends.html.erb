@@ -1,0 +1,32 @@
+<%=render 'friends/lookup' %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-7">
+			<%if @my_friends.count <= 0 %>
+				<h2 align="center">You have not added any friends yet.</h2>
+			<% else %>	
+				<table class="table table-hover animated slideInUp">
+					<thead>
+						<tr class="stock-list">
+							<th>Name</th>
+							<th>Email</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @my_friends.each do |friend| %>
+							<tr class="stock-list-td">
+								<td><%= friend.full_name %></td>
+								<td><%= friend.email %></td>
+								<td>
+									<%=link_to 'view profile', user_path(friend), class: 'btn btn-xs btn-info table-btn'%>
+									<%=link_to 'Unfriend', friendship_path(friend), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-xs btn-danger table-btn'%>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>

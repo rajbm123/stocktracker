@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class="panel-title user-detail">
+						<b>User Details</b>
+					</h2>
+				</div>
+				<div class="panel-body">
+					<%= avatar_for(@user) %>
+					<table class="user-detail-table">
+						<tr>
+							<td><strong><i class="material-icons">account_circle</i> </strong></td>
+							<td> <strong> <%= @user.full_name %> </strong></td>
+						</tr>
+						<tr>
+							<td><strong><i class="material-icons">markunread</i> </strong></td>
+							<td> <strong> <%= @user.email %> </strong></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<%=image_tag '04.jpg', class: 'img-responsive img-stock'%>
+		</div>
+		<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title user-detail">
+					<b>User Stock List</b>
+				</h2>
+			</div>
+			<div class="panel-body">
+				<% if @user.stocks.size > 0 %>
+				<%= render 'stocks/list' %>
+				<% else %>
+				<h3 style="margin:0"><%= @user.first_name %> not tracked any stocks. </h3>
+				<% end %>
+			</div>
+		</div>
+			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<hr/>
+			<%= link_to 'Back', my_friends_path, class: 'btn btn-md btn-danger' %>
+		</div>
+	</div>	
+</div>

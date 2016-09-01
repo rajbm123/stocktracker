@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-4 col-md-4">
+			<%= form_for(@user, html: {multipart: true}) do |f| %>
+				<%= f.label :first_name %>
+				<%= f.text_field :first_name %>
+				<div>
+					<%= f.file_field :avatar %>
+				</div>
+				<%= f.submit %>
+			<% end %>
+		</div>
+		<div class="col-md-4">
+			<%= image_tag @user.avatar.url(:thumb) if @user %>
+		</div>
+	</div>
+</div>

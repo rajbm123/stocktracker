@@ -1,0 +1,135 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+	font-family: "ROBOTO" !important;
+}
+.navbar-inverse.navbar {
+    background-color: rgba(0, 0, 0, 0.77) !important;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+.look-sub-btn {
+	height: 46px;
+	margin: 0px !important;
+	width: 100%;
+}
+#spin-lookup {
+	display: none;
+	text-transform: capitalize
+}
+.alert-alert {
+	background-color: rgb(163, 16, 19) !important;
+}
+.alert-notice {
+	background-color: #4CAF50 !important;
+}
+.alert {
+	box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+}
+.table-btn {
+	margin: 0px 0px !important;
+}
+.sign-in-page {
+	background-image: image-url('stock-img.jpg');
+	height: 100%;
+	background-size: 100% 100%;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	z-index: -1;
+}
+.home-page {
+	background-image: image-url('stock-img3.png');
+	height: 100%;
+	background-size: 100% 100%;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	z-index: -1;
+
+}
+.home-footer {
+	background-color: rgba(0, 0, 0, 0.9);
+	height: 30px;
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+	width: 100%;
+	left: 0;
+	right: 0;
+	line-height: 30px;
+	color: #fff;
+}
+.layer {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	// z-index: -1;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+.navbar .navbar-nav > li > a {
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 13px;
+}
+.navbar .navbar-nav > li > a.btn {
+	padding: 9px 10px;
+}
+.stock-list th {
+	background-color: #dcb7e2;
+	color:#fff;
+	border-bottom: 2px solid #dcb7e2 !important;
+}
+.stock-list-td td {
+	background-color: #fff;
+}
+table.table {
+	margin-bottom: 0px;
+}
+.panel-title.user-detail {
+	color: rgb(156, 39, 176);
+}
+table.user-detail-table {
+	tr {
+		td {
+			color: #666;
+			&:first-child {
+				color: rgb(156, 39, 176);
+				i {
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 1px solid #ffffff;
+}
+.fa-line-chart {
+	font-size: 20px;
+	margin-right: 5px;
+	color: #9c27b0;
+}
+.user-icon {
+	color: #9c27b0;
+}
+.img-stock {
+	width: 100%;
+	margin: 0 auto;
+}
+.avatar-nav {
+	color: red;
+	a {
+		img {
+			border-radius: 50%;
+		}
+	}
+}
