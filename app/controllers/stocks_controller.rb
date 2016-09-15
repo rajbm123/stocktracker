@@ -10,4 +10,4 @@ class StocksController < ApplicationController
   		render status: :not_found, nothing: true
   	end
   end
-end
+end 
